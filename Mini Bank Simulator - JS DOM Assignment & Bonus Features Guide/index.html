@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Bank</title><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sign Up View -->
+        <section id="signup-page" class="section hidden">
+            <div class="card auth-card">
+                <h2>🏦 Mini Bank</h2>
+                <p class="subtitle">Open your digital account in seconds.</p>
+                <form id="signup-form">
+                    <label>Full Name</label>
+                    <input type="text" id="signup-name" placeholder="e.g. Rohit" required />
+                    
+                    <label>Username</label>
+                    <input type="text" id="signup-username" placeholder="e.g. rohit123" required />
+                    
+                    <label>Email Address</label>
+                    <input type="email" id="signup-email" placeholder="e.g. rohit@example.com" required />
+                    
+                    <label>Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required />
+                    
+                    <label>Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required />
+                    
+                    <button type="submit" class="btn-primary">Sign Up</button>
+                </form>
+                <p class="switch-auth">Already have an account? <a href="#" id="show-login">Log In</a></p>
+            </div>
+        </section>
+
+        <!-- Login View -->
+        <section id="login-page" class="section active">
+            <div class="card auth-card">
+                <h2>🏦 Mini Bank</h2>
+                <p class="subtitle">Welcome! HAVE AN ACCOUNT THEN Please log in.</p>
+                <form id="login-form">
+                    <label>Email Address</label>
+                    <input type="text" id="login-identity" placeholder="e.g. rohit@example.com" required />
+                    
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required />
+                    
+                    <button type="submit" class="btn-primary">Log In</button>
+                </form>
+                <p class="switch-auth">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+            </div>
+        </section>
+
+        <!-- Dashboard View -->
+        <section id="dashboard" class="section hidden">
+            <div class="dashboard-header">
+                <h2>🏦 Mini Bank</h2>
+                <button id="close-account-btn" class="btn-danger-outline">Log Out</button>
+            </div>
+
+            <!-- User Account Card -->
+            <div class="card user-card">
+                <h3>Your Account</h3>
+                <div class="account-info">
+                    <p><strong>Account ID:</strong> <span id="display-account-id">-</span></p>
+                    <p><strong>Name:</strong> <span id="display-name">-</span></p>
+                    <p><strong>Email:</strong> <span id="display-email">-</span></p>
+                </div>
+                <div class="balance-box">
+                    <h4>Current Balance</h4>
+                    <h2 id="display-balance">₹0.00</h2>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="card transaction-card">
+                <h3>Quick Actions</h3>
+                <div class="action-group">
+                    <div class="input-with-symbol">
+                        <span>₹</span>
+                        <input type="number" id="deposit-amount" min="1" placeholder="Amount" />
+                    </div>
+                    <button id="deposit-btn" class="btn-success">Deposit</button>
+                </div>
+                <div class="action-group">
+                    <div class="input-with-symbol">
+                        <span>₹</span>
+                        <input type="number" id="withdraw-amount" min="1" placeholder="Amount" />
+                    </div>
+                    <button id="withdraw-btn" class="btn-warning">Withdraw</button>
+                </div>
+            </div>
+
+            <!-- Account Summary Card -->
+            <div class="card summary-card">
+                <h3>Account Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="icon-up">↑</span>
+                        <div>
+                            <p class="summary-label">Total Deposited</p>
+                            <p id="summary-total-deposited" class="summary-value">₹0.00</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="icon-down">↓</span>
+                        <div>
+                            <p class="summary-label">Total Withdrawn</p>
+                            <p id="summary-total-withdrawn" class="summary-value">₹0.00</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="icon-equal">=</span>
+                        <div>
+                            <p class="summary-label">Current Balance</p>
+                            <p id="summary-current-balance" class="summary-value">₹0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History Card -->
+            <div class="card history-card">
+                <h3>Transaction History</h3>
+                <ul id="transactions-list">
+                    <li class="no-txn">No transactions yet.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts In Order -->
+    <script src="js/account.js"></script>
+    <script src="js/transaction.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
